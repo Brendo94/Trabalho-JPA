@@ -12,17 +12,17 @@ import javax.persistence.Table;
 @Table(name = "trabalhos")
 @IdClass(TrabalhoId.class)
 public class Trabalha {
-	
+
 	@Id
 	@ManyToOne
-	@JoinColumn(name="id_pesquisador")
+	@JoinColumn(name = "id_pesquisador")
 	private Pesquisador pesquisador;
-	
+
 	@Id
 	@ManyToOne
-	@JoinColumn(name="id_projeto")
+	@JoinColumn(name = "id_projeto")
 	private Projeto projeto;
-	
+
 	@Column(name = "horas_trabalhadas")
 	private int horas_trabalhadas;
 
@@ -56,7 +56,4 @@ public class Trabalha {
 				+ ", horas_trabalhadas=" + horas_trabalhadas + "]";
 	}
 
-
-	
-	
 }

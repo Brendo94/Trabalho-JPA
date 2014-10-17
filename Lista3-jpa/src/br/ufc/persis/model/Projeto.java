@@ -23,7 +23,7 @@ public class Projeto {
 
 	private String nome;
 
-	private int periodo_desenvolvimento;
+	private String periodo_desenvolvimento;
 	
 	@ManyToOne
 	@JoinColumn(name = "departamento_id")
@@ -33,7 +33,7 @@ public class Projeto {
 	private List<Trabalha> trabalhos;
 		
 
-	public Projeto(int id, String nome, int periodo_desenvolvimento,
+	public Projeto(int id, String nome, String periodo_desenvolvimento,
 			Departamento departamento, List<Trabalha> trabalhos) {
 		super();
 		this.id = id;
@@ -63,11 +63,11 @@ public class Projeto {
 		this.nome = nome;
 	}
 
-	public int getPeriodo_desenvolvimento() {
+	public String getPeriodo_desenvolvimento() {
 		return periodo_desenvolvimento;
 	}
 
-	public void setPeriodo_desenvolvimento(int periodo_desenvolvimento) {
+	public void setPeriodo_desenvolvimento(String periodo_desenvolvimento) {
 		this.periodo_desenvolvimento = periodo_desenvolvimento;
 	}
 
