@@ -1,9 +1,14 @@
 package br.ufc.persis.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +28,13 @@ public class Funcionario {
 	private String data_de_aniversario;
 	
 	private double salario;
-
+	
+	@OneToMany(mappedBy = "Funcionario", targetEntity = Dependente.class)
+	private List<Dependente> dependentes;
+	
+	@ManyToOne
+	@JoinColumn(name = "departamento_id")
+	private Departamento departamento;
 	
 	public Funcionario(int id, String nome, String endereço, String sexo,
 			String data_de_aniversario, double salario) {
