@@ -8,6 +8,7 @@ import br.ufc.persis.dao.FuncionarioJPADAO;
 import br.ufc.persis.dao.ProjetoJPADAO;
 import br.ufc.persis.model.Departamento;
 import br.ufc.persis.model.Funcionario;
+import br.ufc.persis.model.Pesquisador;
 import br.ufc.persis.model.Projeto;
 
 public class InsereDados {
@@ -16,7 +17,6 @@ public class InsereDados {
 	private static List<Funcionario> Funcionarios = null;
 	private static FuncionarioJPADAO FuncionarioDAO;
 
-	
 	private static DepartamentoJPADAO DepartamentoDAO;
 
 	private static List<Projeto> Projetos = null;
@@ -70,21 +70,25 @@ public class InsereDados {
 		// funcionarioDeLimpeza.setDepartamento(departamentoDAO.find(2));
 		// departamentoDAO.close();
 
-		// Pesquisador funcionarioDePesquisa = new Pesquisador();
-		// funcionarioDePesquisa.setNome("Laisa");
-		// funcionarioDePesquisa.setEndereço("Rui maia");
-		// funcionarioDePesquisa.setSexo("Feminino");
-		// funcionarioDePesquisa.setData_de_aniversario("21/05/1992");
-		// funcionarioDePesquisa.setSalario(2500.50);
-		// funcionarioDePesquisa.setArea_de_atuacao("Pesquisadora em Data Mining");
+		departamentoDAO = new DepartamentoJPADAO();
+		departamentoDAO.beginTransaction();
+		Pesquisador funcionarioDePesquisa = new Pesquisador();
+		funcionarioDePesquisa.setNome("Laisa Morais");
+		funcionarioDePesquisa.setEndereço("Rui maia");
+		funcionarioDePesquisa.setSexo("Feminino");
+		funcionarioDePesquisa.setData_de_aniversario("21/05/1992");
+		funcionarioDePesquisa.setSalario(2500.50);
+		funcionarioDePesquisa.setDepartamento(departamentoDAO.find(2));
+		funcionarioDePesquisa.setArea_de_atuacao("Pesquisadora em Data Mining");
+		departamentoDAO.close();
 		//
 
-		// Funcionarios = new ArrayList<Funcionario>();
-		// Funcionarios.add(funcionarioDeLimpeza);
-		// FuncionarioDAO = new FuncionarioJPADAO();
-		// FuncionarioDAO.beginTransaction();
-		// FuncionarioDAO.save(funcionarioDeLimpeza);
-		// FuncionarioDAO.commit();
-		// FuncionarioDAO.close();
+		Funcionarios = new ArrayList<Funcionario>();
+		Funcionarios.add(funcionarioDePesquisa);
+		FuncionarioDAO = new FuncionarioJPADAO();
+		FuncionarioDAO.beginTransaction();
+		FuncionarioDAO.save(funcionarioDePesquisa);
+		FuncionarioDAO.commit();
+		FuncionarioDAO.close();
 	}
 }
