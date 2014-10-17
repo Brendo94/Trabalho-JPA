@@ -21,6 +21,9 @@ public class Departamento {
 	@OneToMany(mappedBy = "Departamento", targetEntity = Funcionario.class)
 	private List<Funcionario> funcionarios;
 	
+	@OneToMany(mappedBy = "Departamento", targetEntity = Projeto.class)
+	private List<Projeto> projetos;
+	
 	private String nome;
 	
 	private int numero;

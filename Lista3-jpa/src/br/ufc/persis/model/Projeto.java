@@ -4,10 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Projeto")
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "id" }))
 public class Projeto {
 
 	@Id
@@ -17,7 +20,11 @@ public class Projeto {
 	private String nome;
 
 	private int periodo_desenvolvimento;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "departamento_id")
+	private Departamento departamento;
+	
 	public Projeto(int id, String nome, int periodo_desenvolvimento) {
 		super();
 		this.id = id;
