@@ -13,10 +13,16 @@ public class Pesquisador extends Funcionario {
 	@OneToMany(mappedBy = "pesquisador", targetEntity = Trabalha.class, fetch = FetchType.LAZY)
 	private List<Trabalha> trabalhos;
 
-	public Pesquisador(int id, String nome, String endereço, String sexo,
-			String data_de_aniversario, double salario) {
-		super(id, nome, endereço, sexo, data_de_aniversario, salario);
+	
 
+	public Pesquisador(int id, String nome, String endereço, String sexo,
+			String data_de_aniversario, double salario,
+			List<Dependente> dependentes, Departamento departamento,
+			String area_de_atuacao, List<Trabalha> trabalhos) {
+		super(id, nome, endereço, sexo, data_de_aniversario, salario,
+				dependentes, departamento);
+		this.area_de_atuacao = area_de_atuacao;
+		this.trabalhos = trabalhos;
 	}
 
 	public Pesquisador() {
@@ -31,9 +37,20 @@ public class Pesquisador extends Funcionario {
 		this.area_de_atuacao = area_de_atuacao;
 	}
 
+	public List<Trabalha> getTrabalhos() {
+		return trabalhos;
+	}
+
+	public void setTrabalhos(List<Trabalha> trabalhos) {
+		this.trabalhos = trabalhos;
+	}
+
 	@Override
 	public String toString() {
-		return "Pesquisador [area_de_atuacao=" + area_de_atuacao + "]";
+		return "Pesquisador [area_de_atuacao=" + area_de_atuacao
+				+ ", trabalhos=" + trabalhos + "]";
 	}
+
+	
 
 }

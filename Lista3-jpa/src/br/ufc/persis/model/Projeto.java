@@ -31,12 +31,20 @@ public class Projeto {
 	
 	@OneToMany(mappedBy = "projeto", targetEntity = Trabalha.class, fetch = FetchType.LAZY)
 	private List<Trabalha> trabalhos;
-	
-	public Projeto(int id, String nome, int periodo_desenvolvimento) {
+		
+
+	public Projeto(int id, String nome, int periodo_desenvolvimento,
+			Departamento departamento, List<Trabalha> trabalhos) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.periodo_desenvolvimento = periodo_desenvolvimento;
+		this.departamento = departamento;
+		this.trabalhos = trabalhos;
+	}
+	
+	public Projeto() {
+		
 	}
 
 	public int getId() {
@@ -63,10 +71,30 @@ public class Projeto {
 		this.periodo_desenvolvimento = periodo_desenvolvimento;
 	}
 
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public List<Trabalha> getTrabalhos() {
+		return trabalhos;
+	}
+
+	public void setTrabalhos(List<Trabalha> trabalhos) {
+		this.trabalhos = trabalhos;
+	}
+
 	@Override
 	public String toString() {
 		return "Projeto [id=" + id + ", nome=" + nome
-				+ ", periodo_desenvolvimento=" + periodo_desenvolvimento + "]";
+				+ ", periodo_desenvolvimento=" + periodo_desenvolvimento
+				+ ", departamento=" + departamento + ", trabalhos=" + trabalhos
+				+ "]";
 	}
+
+	
 
 }

@@ -3,33 +3,29 @@ package br.ufc.persis.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-
+import br.ufc.persis.dao.DepartamentoJPADAO;
 import br.ufc.persis.dao.FuncionarioJPADAO;
+import br.ufc.persis.model.Departamento;
 import br.ufc.persis.model.Funcionario;
 
 public class ConsultaTabela {
-	private static List<Funcionario> funcionarios;
-	private static FuncionarioJPADAO funcionarioDAO;
+	private static List<Departamento> departamentos;
+	private static DepartamentoJPADAO departamentoDAO;
 
 	public static void main(String[] args) {
 
 		// Usando o find da classe GenericJPADAO, que ja usa o criteria no
 		// método find
-		funcionarios = new ArrayList<Funcionario>();
-		funcionarioDAO = new FuncionarioJPADAO();
-		funcionarioDAO.beginTransaction();		
-		funcionarios.addAll(funcionarioDAO.find());
-		funcionarioDAO.close();
+		departamentos = new ArrayList<Departamento>();
+		departamentoDAO = new DepartamentoJPADAO();
+		departamentoDAO.beginTransaction();		
+		departamentos.addAll(departamentoDAO.find());
+		departamentoDAO.close();
 
-		for (int i = 0; i < funcionarios.size(); i++) {
-			System.out.println("Id: " + funcionarios.get(i).getId() + " Nome: "
-					+ funcionarios.get(i).getNome() + " Endereço: "
-					+ funcionarios.get(i).getEndereço());
+		for (int i = 0; i < departamentos.size(); i++) {
+			System.out.println("Id: " + departamentos.get(i).getId() + " Nome: "
+					+ departamentos.get(i).getNome() + " Numero: "
+					+ departamentos.get(i).getNumero());
 		}
 
 	}

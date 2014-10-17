@@ -3,19 +3,36 @@ package br.ufc.persis.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufc.persis.dao.FuncionarioJPADAO;
-import br.ufc.persis.model.Funcionario;
-import br.ufc.persis.model.Limpeza;
-import br.ufc.persis.model.Pesquisador;
+import br.ufc.persis.dao.DepartamentoJPADAO;
+import br.ufc.persis.dao.DependenteDAO;
+import br.ufc.persis.dao.DependenteJPADAO;
+import br.ufc.persis.model.Departamento;
+import br.ufc.persis.model.Dependente;
 
 public class InsereDados {
-	private static List<Funcionario> Funcionarios = null;
-	private static FuncionarioJPADAO FuncionarioDAO;
+//	private static List<Funcionario> Funcionarios = null;
+//	private static FuncionarioJPADAO FuncionarioDAO;
+	
+	private static List<Departamento> Departamentos = null;
+	private static DepartamentoJPADAO DepartamentoDAO;
 
 	public static void main(String[] args) {
 		
+		Departamento departamento1 = new Departamento();
 		
+		departamento1.setNome("Departamento Universidade Federal");
+		departamento1.setNumero(1522);
 
+		
+		Departamentos = new ArrayList<Departamento>();
+		Departamentos.add(departamento1);
+		DepartamentoDAO = new DepartamentoJPADAO();
+		DepartamentoDAO.beginTransaction();
+		DepartamentoDAO.save(departamento1);
+		DepartamentoDAO.commit();
+		DepartamentoDAO.close();
+		
+		
 //		Limpeza funcionarioDeLimpeza = new Limpeza();
 //
 //		funcionarioDeLimpeza.setNome("Marcilio");

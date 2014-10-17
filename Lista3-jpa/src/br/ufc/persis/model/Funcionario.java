@@ -37,8 +37,11 @@ public class Funcionario {
 	@JoinColumn(name = "departamento_id")
 	private Departamento departamento;
 	
+
+
 	public Funcionario(int id, String nome, String endereço, String sexo,
-			String data_de_aniversario, double salario) {
+			String data_de_aniversario, double salario,
+			List<Dependente> dependentes, Departamento departamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -46,6 +49,8 @@ public class Funcionario {
 		this.sexo = sexo;
 		this.data_de_aniversario = data_de_aniversario;
 		this.salario = salario;
+		this.dependentes = dependentes;
+		this.departamento = departamento;
 	}
 
 	public Funcionario() {
@@ -100,12 +105,31 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
+	public List<Dependente> getDependentes() {
+		return dependentes;
+	}
+
+	public void setDependentes(List<Dependente> dependentes) {
+		this.dependentes = dependentes;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", endereço="
+		return "Funcionario [id=" + id + ", nome=" + nome + ", endereço="
 				+ endereço + ", sexo=" + sexo + ", data_de_aniversario="
-				+ data_de_aniversario + ", salario=" + salario + "]";
+				+ data_de_aniversario + ", salario=" + salario
+				+ ", dependentes=" + dependentes + ", departamento="
+				+ departamento + "]";
 	}
+
 	
 	
 }
