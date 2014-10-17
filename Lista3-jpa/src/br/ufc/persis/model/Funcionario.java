@@ -3,7 +3,6 @@ package br.ufc.persis.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,8 +35,6 @@ public class Funcionario {
 	@ManyToOne
 	@JoinColumn(name = "departamento_id")
 	private Departamento departamento;
-	
-
 
 	public Funcionario(int id, String nome, String endereço, String sexo,
 			String data_de_aniversario, double salario,

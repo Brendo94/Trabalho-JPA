@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "Dependente")
 public class Dependente {
@@ -26,8 +28,6 @@ public class Dependente {
 	@ManyToOne()
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
-
-
 
 	public Dependente(int id, String nome, String sexo,
 			String data_de_aniversario, String grau_de_parentesco,
@@ -100,7 +100,5 @@ public class Dependente {
 				+ ", grau_de_parentesco=" + grau_de_parentesco
 				+ ", funcionario=" + funcionario + "]";
 	}
-
-	
 
 }

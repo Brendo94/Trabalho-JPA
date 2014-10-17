@@ -16,7 +16,7 @@ public class InsereDados {
 	private static List<Funcionario> Funcionarios = null;
 	private static FuncionarioJPADAO FuncionarioDAO;
 
-	private static List<Departamento> Departamentos = null;
+	
 	private static DepartamentoJPADAO DepartamentoDAO;
 
 	private static List<Projeto> Projetos = null;
