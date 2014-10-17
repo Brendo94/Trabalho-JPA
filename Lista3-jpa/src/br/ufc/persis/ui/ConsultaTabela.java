@@ -8,44 +8,29 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-//
-//import br.ufc.persis.dao.UsuarioJPADAO;
-//import br.ufc.persis.model.Usuario;
+
+import br.ufc.persis.dao.FuncionarioJPADAO;
+import br.ufc.persis.model.Funcionario;
 
 public class ConsultaTabela {
-//	private static List<Usuario> usuarios;
-//	private static UsuarioJPADAO usuarioDAO;
+	private static List<Funcionario> funcionarios;
+	private static FuncionarioJPADAO funcionarioDAO;
 
 	public static void main(String[] args) {
-//
-//		EntityManagerFactory emf = Persistence
-//				.createEntityManagerFactory("usuarios");
-//		EntityManager em = emf.createEntityManager();
-//
-//		List<Usuario> l = em.createNamedQuery("Usuario.findUsuario",
-//				Usuario.class).getResultList();
-//
-//		for (Usuario u : l) {
-//			System.out.println("Id: " + u.getId() + " Login: "
-//					 + u.getLogin() + " Senha: "
-//					 + u.getSenha() + "Seguidores: " + u.getSeguidores());
-//		}
-//		em.close();
 
-		 
-		
-//		Usando o find da classe GenericJPADAO, que ja usa o criteria no método find
-//		 usuarios = new ArrayList<Usuario>();
-//		 usuarioDAO = new UsuarioJPADAO();
-//		 usuarioDAO.beginTransaction();
-//		 usuarios.addAll(usuarioDAO.find());
-//		 usuarioDAO.close();
-//		
-//		 for (int i = 0; i < usuarios.size(); i++) {
-//		 System.out.println("Id: " + usuarios.get(i).getId() + " Login: "
-//		 + usuarios.get(i).getLogin() + " Senha: "
-//		 + usuarios.get(i).getSenha());
-//		 }
+		// Usando o find da classe GenericJPADAO, que ja usa o criteria no
+		// método find
+		funcionarios = new ArrayList<Funcionario>();
+		funcionarioDAO = new FuncionarioJPADAO();
+		funcionarioDAO.beginTransaction();		
+		funcionarios.addAll(funcionarioDAO.find());
+		funcionarioDAO.close();
+
+		for (int i = 0; i < funcionarios.size(); i++) {
+			System.out.println("Id: " + funcionarios.get(i).getId() + " Nome: "
+					+ funcionarios.get(i).getNome() + " Endereço: "
+					+ funcionarios.get(i).getEndereço());
+		}
 
 	}
 }

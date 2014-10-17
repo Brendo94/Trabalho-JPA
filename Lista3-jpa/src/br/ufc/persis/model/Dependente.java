@@ -3,6 +3,7 @@ package br.ufc.persis.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Dependente {
 
 	private Date grau_de_parentesco;
 	
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "funcionario_id")
 	private Funcionario funcionario;
 
