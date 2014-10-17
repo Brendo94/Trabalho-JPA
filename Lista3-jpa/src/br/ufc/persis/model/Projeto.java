@@ -1,11 +1,15 @@
 package br.ufc.persis.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -24,6 +28,9 @@ public class Projeto {
 	@ManyToOne
 	@JoinColumn(name = "departamento_id")
 	private Departamento departamento;
+	
+	@OneToMany(mappedBy = "projeto", targetEntity = Trabalha.class, fetch = FetchType.LAZY)
+	private List<Trabalha> trabalhos;
 	
 	public Projeto(int id, String nome, int periodo_desenvolvimento) {
 		super();

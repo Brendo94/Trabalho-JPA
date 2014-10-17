@@ -12,10 +12,16 @@ import javax.persistence.Table;
 @Table(name = "trabalhos")
 @IdClass(TrabalhoId.class)
 public class Trabalha {
+	
 	@Id
 	@ManyToOne
 	@JoinColumn(name="id_pesquisador")
 	private Pesquisador pesquisador;
+	
+	@Id
+	@ManyToOne
+	@JoinColumn(name="id_projeto")
+	private Projeto projeto;
 	
 	@Column(name = "horas_trabalhadas")
 	private int horas_trabalhadas;
@@ -36,11 +42,21 @@ public class Trabalha {
 		this.horas_trabalhadas = horas_trabalhadas;
 	}
 
+	public Projeto getProjeto() {
+		return projeto;
+	}
+
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
+	}
+
 	@Override
 	public String toString() {
-		return "Trabalha [pesquisador=" + pesquisador + ", horas_trabalhadas="
-				+ horas_trabalhadas + "]";
+		return "Trabalha [pesquisador=" + pesquisador + ", projeto=" + projeto
+				+ ", horas_trabalhadas=" + horas_trabalhadas + "]";
 	}
+
+
 	
 	
 }
