@@ -8,29 +8,29 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-
-import br.ufc.persis.dao.UsuarioJPADAO;
-import br.ufc.persis.model.Usuario;
+//
+//import br.ufc.persis.dao.UsuarioJPADAO;
+//import br.ufc.persis.model.Usuario;
 
 public class ConsultaTabela {
-	private static List<Usuario> usuarios;
-	private static UsuarioJPADAO usuarioDAO;
+//	private static List<Usuario> usuarios;
+//	private static UsuarioJPADAO usuarioDAO;
 
 	public static void main(String[] args) {
-
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("usuarios");
-		EntityManager em = emf.createEntityManager();
-
-		List<Usuario> l = em.createNamedQuery("Usuario.findUsuario",
-				Usuario.class).getResultList();
-
-		for (Usuario u : l) {
-			System.out.println("Id: " + u.getId() + " Login: "
-					 + u.getLogin() + " Senha: "
-					 + u.getSenha() + "Seguidores: " + u.getSeguidores());
-		}
-		em.close();
+//
+//		EntityManagerFactory emf = Persistence
+//				.createEntityManagerFactory("usuarios");
+//		EntityManager em = emf.createEntityManager();
+//
+//		List<Usuario> l = em.createNamedQuery("Usuario.findUsuario",
+//				Usuario.class).getResultList();
+//
+//		for (Usuario u : l) {
+//			System.out.println("Id: " + u.getId() + " Login: "
+//					 + u.getLogin() + " Senha: "
+//					 + u.getSenha() + "Seguidores: " + u.getSeguidores());
+//		}
+//		em.close();
 
 		 
 		

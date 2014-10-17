@@ -3,32 +3,41 @@ package br.ufc.persis.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufc.persis.dao.UsuarioJPADAO;
-import br.ufc.persis.model.Usuario;
+import br.ufc.persis.dao.FuncionarioJPADAO;
+import br.ufc.persis.model.Funcionario;
+import br.ufc.persis.model.Limpeza;
+import br.ufc.persis.model.Pesquisador;
 
-public class InsereDados {	
-	private static List<Usuario> usuarios = null;
-	private static UsuarioJPADAO usuarioDAO;
+public class InsereDados {
+	private static List<Funcionario> Funcionarios = null;
+	private static FuncionarioJPADAO FuncionarioDAO;
+
 	public static void main(String[] args) {
-								
-		Usuario userA = new Usuario();
-        userA.setLogin("Marcilio");
-        userA.setSenha("123");        	
-        
-        Usuario userB = new Usuario();
-        userB.setLogin("Sergim");
-        Usuario userC = new Usuario();
-        userC.setLogin("Brendo");
-        
-        usuarios = new ArrayList<Usuario>();
-				        
-        usuarios.add(userB);
-        usuarios.add(userC);
+
+//		Limpeza funcionarioDeLimpeza = new Limpeza();
+//
+//		funcionarioDeLimpeza.setNome("Marcilio");
+//		funcionarioDeLimpeza.setEndereço("Rui maia");
+//		funcionarioDeLimpeza.setSexo("Masculino");
+//		funcionarioDeLimpeza.setSalario(1500.50);
+//		funcionarioDeLimpeza.setCargo("Limpador");
+//		funcionarioDeLimpeza.setJornada_trabalho("15 horas semanais");
+
+		Pesquisador funcionarioDePesquisa = new Pesquisador();
+		funcionarioDePesquisa.setNome("Laisa");
+		funcionarioDePesquisa.setEndereço("Rui maia");
+		funcionarioDePesquisa.setSexo("Feminino");
+		funcionarioDePesquisa.setData_de_aniversario("21/05/1992");
+		funcionarioDePesquisa.setSalario(2500.50);
+		funcionarioDePesquisa.setArea_de_atuacao("Pesquisadora em Data Mining");
 		
-		usuarioDAO = new UsuarioJPADAO();
-		usuarioDAO.beginTransaction();
-		usuarioDAO.save(userA);
-		usuarioDAO.commit();
-		usuarioDAO.close();
+
+		Funcionarios = new ArrayList<Funcionario>();
+		Funcionarios.add(funcionarioDePesquisa);
+		FuncionarioDAO = new FuncionarioJPADAO();
+		FuncionarioDAO.beginTransaction();
+		FuncionarioDAO.save(funcionarioDePesquisa);
+		FuncionarioDAO.commit();
+		FuncionarioDAO.close();
 	}
 }
